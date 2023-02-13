@@ -1,0 +1,28 @@
+<div class="card-login">
+    <mat-card>
+        <mat-card-header class="header-card">
+            <h1>Log In</h1>   
+        </mat-card-header>
+        <mat-card-content>
+            <form class="form" [formGroup]="myForm" (ngSubmit)="login()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your username</mat-label>
+                    <input matInput placeholder="user.example" formControlName="username" required>
+                    <mat-error *ngIf="myForm.get('username')?.invalid">{{getErrorMessageUser()}}</mat-error>
+                  </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="myForm.get('password')?.invalid">{{getErrorMessagePass()}}</mat-error>
+                </mat-form-field>
+                <button class="button-login" mat-raised-button color="primary" type="submit"  >Log In</button>
+                <p class="register-text"> Don't have an account?&nbsp;<a routerLink="/auth/register" >Sign Up</a></p>
+                
+            </form>
+            
+        </mat-card-content>
+    </mat-card>
+</div>

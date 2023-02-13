@@ -1,0 +1,9 @@
+<p>home works!</p>
+<h1>Page Home</h1>
+{{ 'token:' +  getToken() | json }}
+<h2>User Data</h2>
+{{ user() | json }}
+<br>
+<br>
+<br>
+<button lass="button-login" mat-raised-button color="primary" (click)="logout()"> Logout </button>
